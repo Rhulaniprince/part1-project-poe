@@ -16,31 +16,30 @@ public class Test_part1 {
     public static void main(String[] args) {
         Scanner scanner =new Scanner(System.in);
         
-        String Storeusrname;
-        String Storeusrpassword;
-        String Inputusrname;
-        String Inputusrpassword;
+        String Storeusername;
+        String StoreUserpassword;
+        String InputUsername;
+        String InputUserpassword;
         
         System.out.println("Create user name ");
-        Storeusrname=scanner.nextLine();
+        Store username=scanner.nextLine();
         
         System.out.println("Create user password");
-        Storeusrpassword=scanner.nextLine();
+        Store userpassword=scanner.nextLine();
         
          System.out.println("Input user name ");
-        Inputusrname=scanner.nextLine();
+        Input username=scanner.nextLine();
         
         System.out.println("Input password");
-       Inputusrpassword=scanner.nextLine();
+       Input userpassword=scanner.nextLine();
        
        
-       if(Storeusrname.equals(Inputusrname)&&Storeusrpassword.equals( Inputusrpassword)){
+       if(StoreUsername.equals(Inputusrname)&&StoreUserpassword.equals( Inputuserpassword)){
            
-           System.out.println("Succesfuly loged in");
-        
-    
-    }
-       else {
+           System.out.println("Succesfuly logged in");
+         }else {
+           Syste.out.println("Username invalid");
+           
            System.out.println("Password and user name are incorrect!");
        }}
     
