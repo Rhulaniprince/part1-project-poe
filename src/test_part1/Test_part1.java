@@ -34,7 +34,7 @@ public class Test_part1 {
        Inputusrpassword=scanner.nextLine();
        
        
-       if(Storeusrname.equals(Inputusrname)&&Storeusrpassword.equals( Inputusrpassword)){
+       if(Storeusrname.equals(Inputusrname)&&Storeusrpassword.equals( Inputusrpassword) && checkuser(Storeusrname) &&checkuserpassword(Storeusrpassword)){
            
            System.out.println("Succesfuly loged in");
         
@@ -42,6 +42,25 @@ public class Test_part1 {
     }
        else {
            System.out.println("Password and user name are incorrect!");
-       }}
+       }
+       
+    }
     
+    public static boolean checkuser(String Storeusrname){
+    
+        return Storeusrname.contains("_") && Storeusrname.length()==5;
+     
+       
+    }
+    
+     public static boolean checkuserpassword(String Storeusrpassword ){
+     
+     if (Storeusrpassword.length() >= 8 && Storeusrpassword.matches(".*[A-Z].*") && Storeusrpassword.matches(".*[a-z].*") && Storeusrpassword.matches(".*[0-9].*")&& Storeusrpassword.matches(".*[!@#$%^&*()_{}:<>?';].*")) {
+         return true;
+     } else {
+         return false;
+     }
+     }
+
 }
+
