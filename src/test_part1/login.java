@@ -12,6 +12,7 @@ public class login {
     
     String Storeusrname;
     String Storeusrpassword;
+    String StorePhoneNumber;
     
     public boolean checkUserName(String username){
     
@@ -20,13 +21,16 @@ public class login {
     }
      public boolean checkPasswordComplexity(String password ){
      
-        return Storeusrpassword.length() >= 8 && Storeusrpassword.matches(".*[A-Z].*") 
-                && Storeusrpassword.matches(".*[a-z].*") && Storeusrpassword.matches(".*[0-9].*")
+        return Storeusrpassword.length() >= 8 
+                && Storeusrpassword.matches(".*[A-Z].*") 
+                && Storeusrpassword.matches(".*[a-z].*") 
+                && Storeusrpassword.matches(".*[0-9].*")
                 && Storeusrpassword.matches(".*[!@#$%^&*()_{}:<>?';].*");
      }
      public boolean checkCellPhoneNumber(String phoneNumber){
           String valid = "^$|(\\+27|0)[1-8][0-9]{8}$";
           return phoneNumber.matches(valid);
+          
      }
      public String registerUser(String username ,String password){
         if (checkUserName(username)!= true){
@@ -46,4 +50,20 @@ public class login {
      
      
      }
+     public boolean loginUser(String inputUserName, String inputpassword , String phoneNumber  ){
+        return Storeusrname.matches(inputUserName) 
+               && Storeusrpassword.matches(inputpassword) 
+               && StorePhoneNumber.equals(phoneNumber);
+         
+        
+     }
+     public String returnLogingStatus(String inputUserName ,String inputpassword ,String phoneNumber){
+         
+        if (loginUser(inputUserName,inputpassword,phoneNumber) ){
+            System.out.println("SUCCESSFULLY LOGED IN.");
+        }else{
+            System.out.println("Failed Login! try again.");
+        }
+        return null;
+    }
 }
