@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Test_part1 {
   
     public static void main(String[] args) {
-        Scanner scanner =new Scanner(System.in);
+         Scanner scanner =new Scanner(System.in);
         login login =new login();
         
         
@@ -18,13 +18,11 @@ public class Test_part1 {
         System.out.println("Create user password");
         String password=scanner.nextLine();
         
-        System.out.println("Enter phone number:"
-                + "");
+        System.out.println("Enter phone number:");
         String phone=scanner.nextLine();
         
         
-        String registerResult = login.registerUser(username, password, phone);
-        System.out.println(registerResult);
+        System.out.println(login.registerUser(username, password, phone, scanner));
     
         
         System.out.println("Login username:");
@@ -40,10 +38,3 @@ public class Test_part1 {
     }
 }
     
-   
-       
-       
-    
-   
-     
-
