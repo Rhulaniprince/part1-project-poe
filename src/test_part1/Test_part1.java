@@ -5,70 +5,36 @@ import java.util.Scanner;
 public class Test_part1 {
   
     public static void main(String[] args) {
-        Scanner scanner =new Scanner(System.in);
-        //Stores the username and password 
-        String Storeusrname;
-        String Storeusrpassword;
-        String Inputusrname;
-        String Inputusrpassword;
-        String phoneNumber;
-        String StoreNumber;
+         Scanner scanner =new Scanner(System.in);
+        login login =new login();
+        
         
         //prompts the user to creates and stores the username
         System.out.println("Create user name ");
-        Storeusrname=scanner.nextLine();
+        String username=scanner.nextLine();
         
         
         //prompts the user to creates and stores the password
         System.out.println("Create user password");
-        Storeusrpassword=scanner.nextLine();
+        String password=scanner.nextLine();
         
-        System.out.println("Input users Phone Number  ");
-        StoreNumber=scanner.nextLine();
+        System.out.println("Enter phone number:");
+        String phone=scanner.nextLine();
         
-        //prompts the user to input the username he/she created 
-         System.out.println("Input user name ");
-        Inputusrname=scanner.nextLine();
         
-        //prompts the user to input the password he/she created 
-        System.out.println("Input password");
-       Inputusrpassword=scanner.nextLine();
-       
-       System.out.println("Input Phone Number");
-       phoneNumber=scanner.nextLine();
-       
-       if(Storeusrname.equals(Inputusrname)&&Storeusrpassword.equals( Inputusrpassword) && checkuser(Storeusrname) &&checkuserpassword(Storeusrpassword)&&StoreNumber.equals(phoneNumber) && checkCellPhoneNumber(phoneNumber)){
-           
-           System.out.println("Succesfuly loged in");
-    }
-       else {
-           System.out.println("Password and user name are incorrect!");
-       }
-       
-    }
+        System.out.println(login.registerUser(username, password, phone, scanner));
     
-    static boolean checkuser(String Storeusrname){
-    
-        return Storeusrname.contains("_") && Storeusrname.length()==5;
-     
-       
-    }
-    
-      static boolean checkuserpassword(String Storeusrpassword ){
-     
-     if (Storeusrpassword.length() >= 8 && Storeusrpassword.matches(".*[A-Z].*") 
-             && Storeusrpassword.matches(".*[a-z].*") && Storeusrpassword.matches(".*[0-9].*")
-             && Storeusrpassword.matches(".*[!@#$%^&*()_{}:<>?';].*")) {
-         return true;
-     } else {
-         return false;
-     }
-     }
-     
-      static boolean checkCellPhoneNumber(String phoneNumber){
-          String valid = "^$|(\\+27|0)[1-8][0-9]{8}$";
-          return phoneNumber.matches(valid);
-     }
+        
+        System.out.println("Login username:");
+        String inputUsername = scanner.nextLine();
 
+        System.out.println("Login password:");
+        String inputPassword = scanner.nextLine();
+
+        System.out.println("Login phone number:");
+        String inputPhone = scanner.nextLine();
+    
+        System.out.println(login.returnLogingStatus(inputUsername, inputPassword, inputPhone));
+    }
 }
-
+    
