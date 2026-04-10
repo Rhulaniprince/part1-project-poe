@@ -12,6 +12,8 @@ public class login {
     String Storeusrname;
     String Storeusrpassword;
     String StorePhoneNumber;
+    String firstName;
+    String LastName;
     
     public boolean checkUserName(String username){
     
@@ -31,7 +33,7 @@ public class login {
           return phoneNumber.matches(valid);
           
      }
-     public String registerUser(String username ,String password, String phoneNumber,Scanner scanner){
+     public String registerUser(String username ,String password, String phoneNumber,Scanner scanner,String firstname,String secondname){
         
          while(!checkUserName(username)){
              System.out.println("The username is incorrectly formatterd PLEASE ENSURE YOUR USERNAME CONTAINS AN UNDERSCORE AND IS NO MORE THAN FIVE CHARACTERS LONG! ");
@@ -51,32 +53,32 @@ public class login {
             
             
          }
-       
-        
-         
             this.Storeusrname = username;
             this.Storeusrpassword = password;
             this.StorePhoneNumber = phoneNumber;
+            this.firstName = firstname;
+            this.LastName = secondname;
             return"USERNAME AND PASSWORD SUCCESSFULLY CAPTURED ";
         }
          
      
      
      
-     public boolean loginUser(String inputUserName, String inputpassword , String phoneNumber  ){
+     public boolean loginUser(String inputUserName, String inputpassword){
         return Storeusrname.equals(inputUserName) 
-               && Storeusrpassword.equals(inputpassword) 
-               && StorePhoneNumber.equals(phoneNumber);
+               && Storeusrpassword.equals(inputpassword);
          
         
      }
-     public String returnLogingStatus(String inputUserName ,String inputpassword ,String phoneNumber){
+     public String returnLogingStatus(String inputUserName ,String inputpassword,String firstname,String secondname){
          
-        if (loginUser(inputUserName,inputpassword,phoneNumber) ){
-           return "SUCCESSFULLY LOGED IN.";
+        if (loginUser(inputUserName,inputpassword)&& firstname.contains(firstName)&& secondname.contains(LastName) ){
+           return "SUCCESSFULLY LOGED IN."+"\n"+"Welcom "+firstname+" "+secondname+" it is great to see you.";
+           
         }else{
             
           return "Failed Login! try again.";
+          
         }
         
         
