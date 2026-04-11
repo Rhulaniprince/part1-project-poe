@@ -22,7 +22,8 @@ public class Test_part1 {
         
         
         //prompts the user to creates and stores the password
-        System.out.println("Create user password"+"\nPASSWORD MUST CONTAINS AT LEAST EIGHT CHARACTERS,A CAPITAL LETTER,A NUMBER AND A SPECIAL CHARACTER ");
+        System.out.println("Create user password"+
+                "\nPASSWORD MUST CONTAINS AT LEAST EIGHT CHARACTERS,A CAPITAL LETTER,A NUMBER AND A SPECIAL CHARACTER ");
         String password=scanner.nextLine();
         
         System.out.println("Enter phone number:");
@@ -38,8 +39,7 @@ public class Test_part1 {
         System.out.println("Enter password:");
         String inputPassword = scanner.nextLine();
 
-        /*System.out.println("Enter phone number:");
-        String inputPhone = scanner.nextLine();*/
+        
     
         System.out.println(login.returnLogingStatus(inputUsername, inputPassword, firstname, lastname));
     }
