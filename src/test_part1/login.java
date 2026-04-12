@@ -46,7 +46,8 @@ public class login {
               System.out.print("Re-enter password: ");
             password = scanner.nextLine();
             
-        } while(!checkCellPhoneNumber(phoneNumber)){
+        } 
+        while(!checkCellPhoneNumber(phoneNumber)){
             System.out.println("Phone number incorrectly formatted!");
             System.out.print("Re-enter phone number: ");
             phoneNumber = scanner.nextLine();
@@ -82,6 +83,7 @@ public class login {
         }
         
         
-        
+    
     }
+    
 }

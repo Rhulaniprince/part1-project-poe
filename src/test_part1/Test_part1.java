@@ -42,6 +42,8 @@ public class Test_part1 {
         
     
         System.out.println(login.returnLogingStatus(inputUsername, inputPassword, firstname, lastname));
+        
+        scanner.close();
     }
 }
     
