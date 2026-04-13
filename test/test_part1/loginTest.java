@@ -50,7 +50,7 @@ public class loginTest {
     @Test
     public void testCheckCellPhoneNumber() {
         System.out.println("checkCellPhoneNumber");
-        String phoneNumber = "0655802731";
+        String phoneNumber = "+27655802731";
         login instance = new login();
         boolean expResult = true;
         boolean result = instance.checkCellPhoneNumber(phoneNumber);
@@ -66,12 +66,12 @@ public class loginTest {
         System.out.println("registerUser");
         String username = "Rhu_l";
         String password = "06Rhul@ninkuna";
-        String phoneNumber = "0655802731";
+        String phoneNumber = "+27655802731";
         Scanner scanner = new Scanner(System.in);
         String firstname = "Rhulani";
         String secondname = "Nkuna";
         login instance = new login();
-        String expResult = "USERNAME AND PASSWORD SUCCESSFULLY CAPTURED ";
+        String expResult = "USERNAME AND PASSWORD SUCCESSFULLY CAPTURED";
         String result = instance.registerUser(username, password, phoneNumber, scanner, firstname, secondname);
         assertEquals(expResult, result);
         
