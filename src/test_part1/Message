@@ -1,0 +1,178 @@
+package com.mycompany.quick_chat;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.Scanner;
+
+public class Message {
+     // Creates object from Login class
+    Login log = new Login();
+    
+     // Stores all sent messages
+    private static ArrayList<Message> sentMessages = new ArrayList<>();
+    // Variables for message details
+    private String messageID;
+    private int messageNumber;
+    private String recipient;
+    private String messageText;
+    private String messageHash;
+    // Keeps track of total sent messages
+    private static int totalMessages = 0;
+   // Constructor for creating a message object
+     public Message(String recipient, String messageText) {
+         
+        this.recipient   = recipient;
+        this.messageText = messageText;
+        // Default message number before sending
+        this.messageNumber = 0;
+        // Generate unique message ID
+        this.messageID   = generateMessageID();
+        // Create message hash
+        this.messageHash = createMessageHash();
+    } 
+     // Generates random 10-digit message ID
+     public String generateMessageID(){
+         
+       Random random = new Random();
+         long number = 1000000000L + (long)(random.nextDouble() * 9000000000L);
+                  return messageID = String.valueOf(number);
+         }
+    // Checks if message ID is exactly 10 digits
+    public boolean checkMessageID(){
+        return messageID.length() == 10 ;
+    
+    }
+     // Validates recipient cellphone number
+    public boolean checkRecipientCell( String RecipientCell ){
+    
+    boolean valid = log.checkCellPhoneNumber(RecipientCell);
+    
+    return valid;
+
+      }
+    // Checks if message is less than or equal to 250 characters
+    public boolean checkMessageLength() {
+
+        if (messageText.length() <= 250) {
+            return true;
+        }else{
+
+        return false;
+        }
+    }
+     // Creates message hash
+    public String createMessageHash(){
+        // Gets first 2 digits of message ID
+        String firstTwoDigits = messageID.substring(0,2);
+        // Splits message into words
+        String[] words = messageText.split(" ");
+         // Gets first and last word
+        String firstWord = words[0];
+        String lastWord = words[words.length - 1];
+         // Returns hash in uppercase
+        return (firstTwoDigits + ":" +
+                messageNumber + ":" +
+                firstWord + lastWord).toUpperCase();
+    }
+     // Handles sending/storing/disregarding messages
+    public String SentMessage(Scanner input){
+        
+      // Validate message length
+      if (!checkMessageLength()) {
+            return "Please enter a message of less than 250 characters.";
+        }
+            // Validate recipient number 
+      if (!checkRecipientCell(this.recipient)) {
+            return "Invalid recipient number. Must start with '+' and be no more than 10 characters.";
+        }
+        // Display message options
+        System.out.println("\nChoose an option:");
+        System.out.println("1. Send Message");
+        System.out.println("2. Disregard Message");
+        System.out.println("3. Store Message to send later");
+        System.out.print("Choice: ");
+        
+        int choice = input.nextInt();
+        input.nextLine();
+        
+        switch (choice) {
+            // Send message
+            case 1:
+                  // Increase total messages count
+                 totalMessages++;
+                 // Assign message number
+                 this.messageNumber = totalMessages;
+                 // Add message to ArrayList
+                 sentMessages.add(this);
+                 // Save message to file
+                 storeMessage();
+
+                 return "Message successfully sent.";
+                
+                // Disregard message  
+            case 2:
+
+                return "Press 0 to delete message.";
+                 // Store message for later
+            case 3:
+
+                storeMessage();
+
+                return "Message successfully stored.";
+                // Invalid option
+            default:
+
+                return "Invalid option.";
+                 
+        }
+    }
+     // Displays all sent messages
+    public static String printMessages(){
+         // Check if  messages exist
+        if (sentMessages.isEmpty()) {
+        return "No messages sent.";
+    }
+
+    StringBuilder sb = new StringBuilder();
+     // Loop through all messages
+    for (Message msg : sentMessages) {         // Message not String
+        sb.append("Message ID:   ").append(msg.messageID).append("\n");
+        sb.append("Message Hash: ").append(msg.messageHash).append("\n");
+        sb.append("Recipient:    ").append(msg.recipient).append("\n");
+        sb.append("Message:      ").append(msg.messageText).append("\n");
+        sb.append("-----------------------------------\n");
+    }
+    return sb.toString();
+    }
+     // Returns total number of messages sent
+    public static int returnTotalMessages(){
+       
+        return totalMessages;
+       
+    }
+     // Stores messages inside messages.json file
+    public void storeMessage() {
+
+    try {
+
+        FileWriter writer =
+                new FileWriter("messages.json", true);
+
+        writer.write(
+                "Message ID: " + messageID +
+                "\nRecipient: " + recipient +
+                "\nMessage: " + messageText +
+                "\n\n"
+        );
+
+        writer.close();
+
+    }
+    catch (IOException e) {
+
+        System.out.println("Error writing to file.");
+    }
+}
+    
+}
