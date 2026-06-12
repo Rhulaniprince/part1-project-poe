@@ -1,0 +1,62 @@
+Message ID: 9214755529
+Recipient: 0766201679
+Message: you good mud
+
+Message ID: 7629029612
+Recipient: 0766201679
+Message: hii
+
+Message ID: 3615419527
+Recipient: 0766201679
+Message: you good broo 
+
+Message ID: 5624305572
+Recipient: 0766202312
+Message: yha bru i am good 
+
+Message ID: 6639262362
+Recipient: 0655802731
+Message: you good 
+
+Message ID:   9877355711
+Message Hash: 98:0:YHAGOOD
+Recipient:    0766201579
+Message:      yha im good 
+
+
+Message ID:   4423757919
+Message Hash: 44:0:YHAGOOD
+Recipient:    0766021679
+Message:      yha i am good 
+
+
+Message ID:   2265826166
+Message Hash: 22:0:YHABROO
+Recipient:    0766291679
+Message:      yha broo 
+
+
+Message ID:   1650632569
+Message Hash: 16:0:HITHANKS
+Recipient:    +27821234567
+Message:      Hi there thanks
+
+
+Message ID:   1838043184
+Message Hash: 18:1:HITHANKS
+Recipient:    +27821234567
+Message:      Hi there thanks
+
+
+Message ID:   6099445345
+Message Hash: 60:0:HITHANKS
+Recipient:    +27821234567
+Message:      Hi there thanks
+
+
+Message ID:   1612268846
+Message Hash: 16:1:HITHANKS
+Recipient:    +27821234567
+Message:      Hi there thanks
+
+
